@@ -66,16 +66,16 @@ export default defineComponent({
     setup(props): SiderMenuSetupData {
         const { menuData, topNavEnable }  = toRefs(props);
 
-        const newMenuData = computed<RoutesDataItem[]>(()=> {
+        const newMenuData = computed<RoutesDataItem[]>(() => {
           if(!topNavEnable.value) {
-            return menuData.value;
+            return menuData.value as RoutesDataItem[];
           }
           const MenuItems: RoutesDataItem[] = [];
           for (let index = 0, len = menuData.value.length; index < len; index += 1) {
             const element = menuData.value[index];
             if (element.children) {
               MenuItems.push(
-                ...element.children,
+                ...element.children as RoutesDataItem[],
               );
             }
           }

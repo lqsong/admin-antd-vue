@@ -70,7 +70,7 @@ export default defineComponent({
         const { t } = useI18n();
         
 
-        const topMenuPath = computed<string>(()=> getRouteBelongTopMenu(routeItem.value));
+        const topMenuPath = computed<string>(()=> getRouteBelongTopMenu(routeItem.value as RoutesDataItem));
 
         return {
             item: routeItem as unknown as RoutesDataItem,
