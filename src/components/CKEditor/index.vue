@@ -169,7 +169,7 @@ export default defineComponent({
   display: flex;
   flex-flow: column nowrap;
 
-  /deep/ .ck.ck-toolbar {
+  ::v-deep(.ck.ck-toolbar) {
     /* Make sure the toolbar container is always above the editable. */
     z-index: 1;
 
@@ -183,7 +183,7 @@ export default defineComponent({
     border-radius: 0;
   }
 
-  /deep/ .ck-content {
+  ::v-deep(.ck-content) {
     min-height: 300px;
     line-height: normal;
   }

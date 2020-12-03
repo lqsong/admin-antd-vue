@@ -242,7 +242,7 @@ export default defineComponent({
 </script>
 <style lang="less" scoped>
 .cus-table {
-  /deep/.ant-descriptions-row {
+  ::v-deep(.ant-descriptions-row) {
     .ant-descriptions-item-label {
       width: 185px;
       font-weight: 600;

@@ -78,14 +78,14 @@ export default defineComponent({
 <style lang="less" scoped>
 .homeBoxCard {
   margin-bottom: 24px;
-  /deep/ .ant-card-head {
+  ::v-deep(.ant-card-head) {
     padding-left: 12px;
     padding-right: 12px;
   }
-  /deep/ .ant-card-body {
+  ::v-deep(.ant-card-body) {
     padding: 12px;
   }
-  /deep/ .ant-divider-horizontal {
+  ::v-deep(.ant-divider-horizontal) {
     margin: 8px 0;
   }
   .num {
