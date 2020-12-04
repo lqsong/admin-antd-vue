@@ -2,14 +2,14 @@
     <div class="indexlayout-right-footer">
       <div class="footer-links">
         <a
-          href="http://demo.admin-antd-react.liqingsong.cc"
+          href="http://demo.admin-antd-vue.liqingsong.cc"
           target="_blank"
           rel="noreferrer"
         >
           DEMO
         </a>
         <a
-          href="https://github.com/lqsong/admin-antd-react"
+          href="https://github.com/lqsong/admin-antd-vue"
           target="_blank"
           rel="noreferrer"
         >
