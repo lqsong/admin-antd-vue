@@ -2,6 +2,8 @@
 
 ## Demo
 
+**注意：Demo 用的是在线mock服务，不稳定，若在线登录不了pull到本地可直接运行查看demo**
+
 | **[http://demo.admin-antd-vue.liqingsong.cc](http://demo.admin-antd-vue.liqingsong.cc/)**             |
 :-------------------------:
 | ![Home](https://gitee.com/lqsong/public/raw/master/admin-antd-vue/home.png)  |
