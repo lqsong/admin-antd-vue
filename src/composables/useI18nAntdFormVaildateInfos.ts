@@ -13,8 +13,8 @@ export default function useI18nAntdFormVaildateInfos(infos: validateInfos): vali
         const vInfos: validateInfos  = {};            
         for (const index in infos) {
             vInfos[index] = JSON.parse(JSON.stringify(infos[index]));
-            if(vInfos[index]['help']) {
-                vInfos[index]['help'] = t(vInfos[index]['help']);
+            if(vInfos[index] && vInfos[index]['help']) {
+                vInfos[index]['help'] = t(vInfos[index]['help'] || '');
             }
         }
         return vInfos;

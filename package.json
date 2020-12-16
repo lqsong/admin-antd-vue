@@ -11,20 +11,20 @@
     "svgo": "svgo -f src/assets/iconsvg --config=src/assets/iconsvg/svgo.yml"
   },
   "dependencies": {
-    "@ant-design-vue/use": "^0.0.1-alpha.7",
+    "@ant-design-vue/use": "^0.0.1-alpha.8",
     "@ckeditor/ckeditor5-build-decoupled-document": "^23.1.0",
     "@ckeditor/ckeditor5-vue": "^2.0.1",
     "@toast-ui/editor": "^2.5.1",
-    "ant-design-vue": "^2.0.0-rc.2",
+    "ant-design-vue": "^2.0.0-rc.5",
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "echarts": "^4.9.0",
     "localforage": "^1.9.0",
     "lodash.debounce": "^4.0.8",
-    "vue": "^3.0.0",
-    "vue-i18n": "^9.0.0-beta.10",
-    "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vue": "^3.0.4",
+    "vue-i18n": "^9.0.0-beta.13",
+    "vue-router": "^4.0.1",
+    "vuex": "^4.0.0-rc.2"
   },
   "devDependencies": {
     "@types/echarts": "^4.9.2",
