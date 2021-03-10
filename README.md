@@ -1,5 +1,7 @@
 # admin-antd-vue
 
+此分支是 Webpack + Vue3.x + antd 版本 ， Vite 版本请查看 vite (分支)（[github](https://github.com/lqsong/admin-antd-vue/tree/vite)、[gitee](https://gitee.com/lqsong/admin-antd-vue/tree/vite)）
+
 ## Demo
 
 **注意：Demo 用的是在线mock服务，不稳定，若在线登录不了pull到本地可直接运行查看demo**
