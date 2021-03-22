@@ -8,13 +8,12 @@
             <a-table
                 bordered
                 :rowKey="rowKey"
-                :columns="columns"
+                :columns="columnsRest"
                 :dataSource="dataSource"
                 :loading="loading"
                 :pagination="false"
                 :scroll="{ scrollToFirstRowOnChange: true, y: tableScrollY }"
             >
-                <slot></slot>
             </a-table>
         </div>
 
@@ -32,7 +31,7 @@
     </div>
 </template>
 <script lang="ts">
-import { defineComponent, onBeforeUnmount, onMounted, PropType, ref } from "vue";
+import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, ref } from "vue";
 import debounce from "lodash.debounce";
 import { PaginationConfig } from "./data.d";
 
@@ -44,6 +43,7 @@ export default defineComponent({
         },
         columns: {
             type: Array,
+            required: true
         },
         dataSource: {
             type: Array
@@ -55,7 +55,16 @@ export default defineComponent({
             type: Object as PropType<PaginationConfig | false | undefined>
         }
     },
-    setup() {
+    setup(props, { slots }) {
+
+        const columnsRest = computed<any>(() => {
+            return props.columns.map((item: any)=> {
+                    if(item['slots'] && item['slots']['customRender']) {
+                        item['customRender'] = slots[item['slots']['customRender']];
+                    }
+                    return item;
+            });
+        })
 
         const tableScrollY = ref<number>(0);
         const conentRef = ref<HTMLDivElement>();
@@ -79,7 +88,8 @@ export default defineComponent({
 
         return {
             conentRef,
-            tableScrollY
+            tableScrollY,
+            columnsRest
         }
 
     }
