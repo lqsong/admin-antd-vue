@@ -41,18 +41,24 @@ export default defineComponent({
       },
       selectedKeys: {
         type: Array as PropType<string[]>,
-        default: []
+        default: () => {
+          return [];
+        }
       },
       openKeys: {
         type: Array as PropType<string[]>,
-        default: []
+        default: () => {
+          return [];
+        }
       },
       onOpenChange: {
         type: Function as PropType<(key: any) => void>
       },
       menuData: {
         type: Array as PropType<RoutesDataItem[]>,
-        default: []
+        default: () => {
+          return [];
+        }
       }
     },
     components: {   
