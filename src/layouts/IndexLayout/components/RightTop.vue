@@ -140,7 +140,7 @@ export default defineComponent({
       text-align: center;
       cursor: pointer;
       &:hover {
-        background-color: @menu-dark-submenu-bg;
+        background-color: @menu-dark-bg;
         color: @menu-dark-highlight-color;
       }
     }
@@ -162,7 +162,7 @@ export default defineComponent({
         border-bottom: solid 3px transparent;
         &:hover,
         &.active {
-          background-color: @menu-dark-submenu-bg;
+          background-color: @menu-dark-bg;
           color: @menu-dark-highlight-color;
           border-bottom-color: @primary-color;
         }
