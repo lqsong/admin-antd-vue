@@ -50,10 +50,13 @@
 </template>
 <script lang="ts">
 import { defineComponent, PropType, reactive } from "vue";
-import { useForm } from "@ant-design-vue/use";
+
+import { Form } from 'ant-design-vue';
+const useForm = Form.useForm;
+
 import TypeSelect from './TypeSelect.vue';
 import { TableListItem } from "../data.d";
-import { Props } from "@ant-design-vue/use/lib/useForm";
+
 
 export default defineComponent({
     name: 'SearchDrawer',

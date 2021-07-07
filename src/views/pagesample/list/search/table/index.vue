@@ -108,9 +108,12 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted, reactive, ref } from "vue";
 import { useStore } from "vuex";
-import { message, Modal } from "ant-design-vue";
+
+import { Props, validateInfos } from 'ant-design-vue/lib/form/useForm';
+import { message, Modal, Form } from "ant-design-vue";
+const useForm = Form.useForm;
+
 import { UpOutlined,DownOutlined } from '@ant-design/icons-vue';
-import useForm, { Props, validateInfos } from "@ant-design-vue/use/lib/useForm";
 import CreateForm from './components/CreateForm.vue';
 import UpdateForm from './components/UpdateForm.vue';
 import TypeSelect from './components/TypeSelect.vue';

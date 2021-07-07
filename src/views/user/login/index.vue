@@ -35,9 +35,11 @@ import { computed, defineComponent, reactive, ref, watch } from "vue";
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import { useI18n } from "vue-i18n";
-import { message } from 'ant-design-vue';
-import { useForm } from '@ant-design-vue/use';
-import { Props, validateInfos } from '@ant-design-vue/use/lib/useForm';
+
+import { Props, validateInfos } from 'ant-design-vue/lib/form/useForm';
+import { message, Form } from 'ant-design-vue';
+const useForm = Form.useForm;
+
 import { UserOutlined, UnlockOutlined } from '@ant-design/icons-vue';
 import useI18nAntdFormVaildateInfos from '@/composables/useI18nAntdFormVaildateInfos';
 import { LoginParamsType } from './data.d';

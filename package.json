@@ -10,7 +10,6 @@
     "svgo": "svgo -f src/assets/iconsvg --config=src/assets/iconsvg/svgo.yml"
   },
   "dependencies": {
-    "@ant-design-vue/use": "^0.0.1-alpha.10",
     "@ckeditor/ckeditor5-build-decoupled-document": "^26.0.0",
     "@ckeditor/ckeditor5-vue": "^2.0.1",
     "@toast-ui/editor": "^2.5.2",

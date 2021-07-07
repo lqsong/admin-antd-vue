@@ -74,7 +74,7 @@ import { computed, defineComponent, onMounted, ref } from "vue";
 import { useStore } from "vuex";
 import { message, Modal } from "ant-design-vue";
 import { PlusOutlined } from '@ant-design/icons-vue';
-import { Props } from "@ant-design-vue/use/lib/useForm";
+import { Props } from 'ant-design-vue/lib/form/useForm';
 import CreateForm from './components/CreateForm.vue';
 import UpdateForm from './components/UpdateForm.vue';
 import { StateType as ListStateType } from "./store";

@@ -4,17 +4,17 @@
  */
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { validateInfos } from '@ant-design-vue/use/lib/useForm';
+import { validateInfos } from 'ant-design-vue/lib/form/useForm';
 
 export default function useI18nAntdFormVaildateInfos(infos: validateInfos): validateInfos {
     const{ t } = useI18n();
 
     const infosNew = computed<validateInfos>(() => {
-        const vInfos: validateInfos  = {};            
+        const vInfos: validateInfos  = {};  
         for (const index in infos) {
-            vInfos[index] = JSON.parse(JSON.stringify(infos[index]));
+            vInfos[index] = JSON.parse(JSON.stringify(infos[index]));           
             if(vInfos[index] && vInfos[index]['help']) {
-                vInfos[index]['help'] = t(vInfos[index]['help'] || '');
+                vInfos[index]['help'] = vInfos[index]['help'].map((item: any)=> typeof(item)=='string' ? t(item) : item.map((item2: any)=> item2 ? t(item2):''));
             }
         }
         return vInfos;
