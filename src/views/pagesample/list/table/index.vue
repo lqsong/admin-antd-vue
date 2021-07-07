@@ -62,8 +62,11 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted, ref } from "vue";
 import { useStore } from "vuex";
-import { message, Modal } from "ant-design-vue";
-import { Props } from "@ant-design-vue/use/lib/useForm";
+
+import { Props } from 'ant-design-vue/lib/form/useForm';
+import { message, Modal, Form } from "ant-design-vue";
+const useForm = Form.useForm;
+
 import CreateForm from './components/CreateForm.vue';
 import UpdateForm from './components/UpdateForm.vue';
 import { StateType as ListStateType } from "./store";

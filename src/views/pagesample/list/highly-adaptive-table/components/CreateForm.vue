@@ -33,11 +33,13 @@
 <script lang="ts">
 import { defineComponent, PropType, reactive } from "vue";
 import { useI18n } from "vue-i18n";
-import { message } from "ant-design-vue";
-import { useForm } from "@ant-design-vue/use";
+
+import { Props, validateInfos } from 'ant-design-vue/lib/form/useForm';
+import { message, Form } from 'ant-design-vue';
+const useForm = Form.useForm;
+
 import TypeSelect from './TypeSelect.vue';
 import { TableListItem } from "../data.d";
-import { Props, validateInfos } from "@ant-design-vue/use/lib/useForm";
 
 interface CreateFormSetupData {
     modelRef: Omit<TableListItem, 'id'>;

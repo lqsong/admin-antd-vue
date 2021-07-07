@@ -35,9 +35,11 @@ import { computed, defineComponent, reactive, ref, watch } from "vue";
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import { useI18n } from "vue-i18n";
-import { message } from 'ant-design-vue';
-import { useForm } from '@ant-design-vue/use';
-import { Props, validateInfos } from '@ant-design-vue/use/lib/useForm';
+
+import { Props, validateInfos } from 'ant-design-vue/lib/form/useForm';
+import { message, Form } from 'ant-design-vue';
+const useForm = Form.useForm;
+
 import { UserOutlined, UnlockOutlined } from '@ant-design/icons-vue';
 import useI18nAntdFormVaildateInfos from '@/composables/useI18nAntdFormVaildateInfos';
 import { LoginParamsType } from './data.d';
@@ -95,7 +97,7 @@ export default defineComponent({
             submitLoading.value = true;
             try {
                 const fieldsValue = await validate<LoginParamsType>();
-                const res: boolean = await store.dispatch('userlogin/login',fieldsValue);                
+                const res: boolean = await store.dispatch('userlogin/login',fieldsValue);        
                 if (res === true) {
                     message.success(t('page.user.login.form.login-success'));
                     const { redirect, ...query } = currentRoute.value.query;
