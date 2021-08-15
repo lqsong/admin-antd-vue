@@ -31,7 +31,7 @@
     </div>
 </template>
 <script lang="ts">
-import { computed, defineComponent, reactive, ref, watch } from "vue";
+import { computed, ComputedRef, defineComponent, reactive, Ref, ref, watch } from "vue";
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import { useI18n } from "vue-i18n";
@@ -46,13 +46,13 @@ import { LoginParamsType } from './data.d';
 import { StateType as UserLoginStateType } from './store';
 
 interface UserLoginSetupData {
-    t: Function;
+    t: (key: string | number) => string;    
     resetFields: (newValues?: Props) => void;
-    validateInfos: validateInfos;
+    validateInfos: ComputedRef<validateInfos>;
     modelRef: LoginParamsType;
-    submitLoading: boolean;
+    submitLoading: Ref<boolean>;
     handleSubmit: (e: MouseEvent) => void;
-    loginStatus?: "ok" | "error" ;
+    loginStatus: ComputedRef<"error" | "ok" | undefined>;
 }
 
 export default defineComponent({
@@ -124,11 +124,11 @@ export default defineComponent({
         return {
             t,
             resetFields,
-            validateInfos: validateInfosNew as unknown as validateInfos,
+            validateInfos: validateInfosNew,
             modelRef,
-            submitLoading: submitLoading as unknown as boolean,
+            submitLoading,
             handleSubmit,
-            loginStatus: loginStatus as unknown as "ok" | "error" | undefined
+            loginStatus
         }
     }
 })

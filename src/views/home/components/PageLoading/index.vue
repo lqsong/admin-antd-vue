@@ -1,5 +1,5 @@
 <template>
-    <div :style="{ 'padding-top': '100px', 'text-align': 'center' }">
+    <div :style="{'paddingTop': '100px', 'textAlign' : 'center' }">
         <a-spin size="large" />
     </div>
 </template>

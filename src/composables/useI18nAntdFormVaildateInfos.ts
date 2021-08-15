@@ -2,11 +2,11 @@
  * 重置 Antd Form VaildateInfos 为 I18n
  * @author LiQingSong
  */
-import { computed } from 'vue';
+import { computed, ComputedRef } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { validateInfos } from 'ant-design-vue/lib/form/useForm';
 
-export default function useI18nAntdFormVaildateInfos(infos: validateInfos): validateInfos {
+export default function useI18nAntdFormVaildateInfos(infos: validateInfos): ComputedRef<validateInfos>  {
     const{ t } = useI18n();
 
     const infosNew = computed<validateInfos>(() => {
@@ -20,5 +20,5 @@ export default function useI18nAntdFormVaildateInfos(infos: validateInfos): vali
         return vInfos;
     });
 
-    return infosNew as unknown as validateInfos;
+    return infosNew;
 }
