@@ -60,7 +60,7 @@
     </div>
 </template>
 <script lang="ts">
-import { computed, defineComponent, onMounted, ref } from "vue";
+import { computed, ComputedRef, defineComponent, onMounted, Ref, ref } from "vue";
 import { useStore } from "vuex";
 
 import { Props } from 'ant-design-vue/lib/form/useForm';
@@ -74,22 +74,22 @@ import { PaginationConfig, TableListItem } from './data.d';
 
 interface ListTablePageSetupData {
     columns: any;
-    list: TableListItem[];
-    pagination: PaginationConfig;
-    loading: boolean;
+    list: ComputedRef<TableListItem[]>;
+    pagination: ComputedRef<PaginationConfig>;
+    loading: Ref<boolean>;
     getList:  (current: number) => Promise<void>;
-    createFormVisible: boolean;
+    createFormVisible: Ref<boolean>;
     setCreateFormVisible:  (val: boolean) => void;
-    createSubmitLoading: boolean;
+    createSubmitLoading: Ref<boolean>;
     createSubmit: (values: Omit<TableListItem, 'id'>, resetFields: (newValues?: Props | undefined) => void) => Promise<void>;
-    detailUpdateLoading: number[];
+    detailUpdateLoading: Ref<number[]>;
     detailUpdateData: (id: number) => Promise<void>;
-    updateData: Partial<TableListItem>;
-    updateFormVisible: boolean;
+    updateData: ComputedRef<Partial<TableListItem>>;
+    updateFormVisible: Ref<boolean>;
     updataFormCancel:  () => void;
-    updateSubmitLoading: boolean;
+    updateSubmitLoading: Ref<boolean>;
     updateSubmit:  (values: TableListItem, resetFields: (newValues?: Props | undefined) => void) => Promise<void>;
-    deleteLoading: number[];
+    deleteLoading: Ref<number[]>;
     deleteTableData:  (id: number) => void;
 }
 
@@ -240,22 +240,22 @@ export default defineComponent({
 
         return {
             columns,
-            list: list as unknown as TableListItem[],
-            pagination: pagination as unknown as PaginationConfig,
-            loading: loading as unknown as boolean,
+            list,
+            pagination,
+            loading,
             getList,
-            createFormVisible: createFormVisible as unknown as boolean,
+            createFormVisible,
             setCreateFormVisible,
-            createSubmitLoading: createSubmitLoading as unknown as boolean,
+            createSubmitLoading,
             createSubmit,
-            detailUpdateLoading: detailUpdateLoading as unknown as number[],
+            detailUpdateLoading,
             detailUpdateData,
-            updateData: updateData as Partial<TableListItem>,
-            updateFormVisible: updateFormVisible as unknown as boolean,
+            updateData,
+            updateFormVisible,
             updataFormCancel,
-            updateSubmitLoading: updateSubmitLoading as unknown as boolean,
+            updateSubmitLoading,
             updateSubmit,
-            deleteLoading: deleteLoading as unknown as number[],
+            deleteLoading,
             deleteTableData
         }
 

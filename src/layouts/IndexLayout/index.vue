@@ -37,7 +37,7 @@
     </div>
 </template>
 <script lang="ts">
-import { defineComponent, computed, ComputedRef, watch, ref } from "vue";
+import { defineComponent, computed, ComputedRef, watch, ref, Ref } from "vue";
 import { useStore } from 'vuex';
 import { useRoute } from 'vue-router';
 import { StateType as GlobalStateType } from '@/store/global';
@@ -57,17 +57,17 @@ import RightFooter from '@/layouts/IndexLayout/components/RightFooter.vue';
 import Settings from '@/layouts/IndexLayout/components/Settings.vue';
 
 interface IndexLayoutSetupData {
-  collapsed: boolean;
+  collapsed: ComputedRef<boolean>;
   toggleCollapsed: () => void;
-  topNavEnable: boolean;
-  belongTopMenu: string;
-  headFixed: boolean;  
-  selectedKeys: string[];
-  leftOpenKeys: string[];
-  breadCrumbs: BreadcrumbType[];
-  permissionMenuData: RoutesDataItem[];
+  topNavEnable: ComputedRef<boolean>;
+  belongTopMenu: ComputedRef<string>;
+  headFixed: ComputedRef<boolean>;  
+  selectedKeys: ComputedRef<string[]>;
+  leftOpenKeys: Ref<string[]>;
+  breadCrumbs: ComputedRef<BreadcrumbType[]>;
+  permissionMenuData: ComputedRef<RoutesDataItem[]>;
   onOpenChange: (key: any) => void;
-  routeItem: RoutesDataItem;
+  routeItem: ComputedRef<RoutesDataItem>;
 }
 
 export default defineComponent({
@@ -143,17 +143,17 @@ export default defineComponent({
 
 
       return {
-        collapsed: collapsed as unknown as boolean,
+        collapsed,
         toggleCollapsed,
-        topNavEnable: topNavEnable as unknown as boolean,
-        belongTopMenu: belongTopMenu as unknown as string,
-        headFixed: headFixed as unknown as boolean, 
-        selectedKeys: selectedKeys as unknown as string[],
-        leftOpenKeys: leftOpenKeys as unknown as string[],
-        breadCrumbs: breadCrumbs as unknown as BreadcrumbType[],
-        permissionMenuData: permissionMenuData as unknown as RoutesDataItem[],
+        topNavEnable,
+        belongTopMenu,
+        headFixed, 
+        selectedKeys,
+        leftOpenKeys,
+        breadCrumbs,
+        permissionMenuData,
         onOpenChange,
-        routeItem: routeItem as unknown as RoutesDataItem
+        routeItem
       }
     }
 })

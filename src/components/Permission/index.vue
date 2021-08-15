@@ -14,14 +14,14 @@
     
 </template>
 <script lang="ts">
-import { computed, defineComponent, PropType } from "vue";
+import { computed, ComputedRef, defineComponent, PropType } from "vue";
 import { useStore } from "vuex";
 import { StateType as UserStateType } from "@/store/user";
 import { hasPermissionRouteRoles } from "@/utils/routes";
 
 
 interface PermissionSetupData {
-    isPermission: boolean;
+    isPermission: ComputedRef<boolean>;
 }
 
 export default defineComponent({
@@ -38,7 +38,7 @@ export default defineComponent({
         const isPermission = computed(()=> hasPermissionRouteRoles(store.state.user.currentUser.roles, props.roles));
 
         return {
-            isPermission: isPermission as unknown as boolean
+            isPermission
         }
 
     }

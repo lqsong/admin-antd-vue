@@ -2,13 +2,13 @@
     <div className="indexlayout-main-conent">
         <a-card :bordered="false">
 
-             <div v-for="item in svgIcons" class="list" :key="item" >
+             <div v-for="(item, index) in svgIcons" class="list" :key="index" >
                 <a-popover>
                     <template #content>
                         &lt;icon-svg type="{{item}}" /&gt;
                     </template>
                     <div>
-                        <icon-svg :type="item" style="font-size: 30px" />
+                        <icon-svg :type="item || ''" style="font-size: 30px" />
                         <span>{{item}}</span>
                     </div>
                 </a-popover>
@@ -48,7 +48,7 @@ import { defineComponent } from "vue";
 import { useI18n } from "vue-i18n";
 import IconSvg from "@/components/IconSvg";
 
-const requireAll = (requireContext: __WebpackModuleApi.RequireContext) =>
+const requireAll = (requireContext: any/* __WebpackModuleApi.RequireContext */) =>
   requireContext.keys();
 const svgIcons = requireAll(
   require.context('../../../../assets/iconsvg', false, /\.svg$/),

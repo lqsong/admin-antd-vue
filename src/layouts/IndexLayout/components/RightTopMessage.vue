@@ -9,13 +9,13 @@
     </router-link>
 </template>
 <script lang="ts">
-import { computed, defineComponent, onMounted } from "vue";
+import { computed, ComputedRef, defineComponent, onMounted } from "vue";
 import { useStore } from "vuex";
 import { BellOutlined } from '@ant-design/icons-vue';
 import { StateType as UserStateType } from "@/store/user";
 
 interface RightTopMessageSetupData {
-    message: number;
+    message: ComputedRef<number>;
 }
 
 export default defineComponent({
@@ -36,7 +36,7 @@ export default defineComponent({
 
 
         return {
-            message: message as unknown as number
+            message
         }
     }
 })

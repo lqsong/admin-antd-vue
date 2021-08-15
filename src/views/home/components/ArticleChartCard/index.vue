@@ -30,7 +30,7 @@
     </a-spin>
 </template>
 <script lang="ts">
-import { computed, defineComponent, onMounted, ref } from "vue";
+import { computed, ComputedRef, defineComponent, onMounted, Ref, ref } from "vue";
 import { useStore } from "vuex";
 import { useI18n } from "vue-i18n";
 import { CaretUpOutlined, CaretDownOutlined} from '@ant-design/icons-vue';
@@ -38,9 +38,9 @@ import { ArticleChartDataType } from "../../data.d";
 import { StateType as HomeStateType } from "../../store";
 
 interface ArticleChartCardSetupData {
-    t: Function;
-    loading: boolean;
-    visitData: ArticleChartDataType;
+    t: (key: string | number) => string;
+    loading: Ref<boolean>;
+    visitData: ComputedRef<ArticleChartDataType>;
 }
 
 export default defineComponent({
@@ -69,8 +69,8 @@ export default defineComponent({
 
         return {
             t,
-            loading: loading as unknown as boolean,
-            visitData: visitData as unknown as ArticleChartDataType
+            loading,
+            visitData
         }
     }
 })

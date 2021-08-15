@@ -6,7 +6,7 @@
         :selectedKeys="selectedKeys"
         :openKeys="openKeys"
         @openChange="(key)=>{
-            onOpenChange(key);
+          openChange(key);
         }"
     >
         <sider-menu-item 
@@ -21,12 +21,13 @@
     </a-menu>
 </template>
 <script lang="ts">
-import { computed, defineComponent, PropType, toRefs } from "vue";
+import { computed, ComputedRef, defineComponent, PropType, toRefs } from "vue";
 import { RoutesDataItem } from '@/utils/routes';
 import SiderMenuItem from './SiderMenuItem.vue';
 
 interface SiderMenuSetupData {
-  newMenuData: RoutesDataItem[];
+  newMenuData: ComputedRef<RoutesDataItem[]>;
+  openChange: (key: any) => void
 }
 
 export default defineComponent({
@@ -88,9 +89,14 @@ export default defineComponent({
           return MenuItems;
         })
 
+        const openChange = (key: string): void => {
+          props.onOpenChange && props.onOpenChange(key);
+        }
+
 
         return {
-          newMenuData: newMenuData as unknown as RoutesDataItem[]
+          newMenuData,
+          openChange
         }
     }
 })
