@@ -366,6 +366,7 @@ export default defineComponent({
 <style lang="less" scoped>
 @import '../../../assets/css/global.less';
 .indexlayout-top-tab-nav {
+    box-sizing: content-box;
     height: (@headerTabNavHeight - 4px);
     padding-top: 4px;
     /* background-color: #f0f0f0; */
@@ -398,6 +399,7 @@ export default defineComponent({
         }
     }
      .down {
+        box-sizing: content-box;
         padding-right: 10px;
         line-height: normal;
     } 
