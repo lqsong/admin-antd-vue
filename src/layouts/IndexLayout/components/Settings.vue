@@ -36,6 +36,12 @@
                 </template>
                 固定右侧头部
             </a-list-item>
+            <a-list-item>
+                <template #actions>
+                    <a-switch :checked="tabNavEnable" @change="onChangeTabNavEnable" />
+                </template>
+                启用TabNav
+            </a-list-item>  
         </a-list>
     </a-drawer>
 </template>
@@ -51,6 +57,8 @@ interface SettingsSetupData {
     show: () => void;
     topNavEnable: ComputedRef<boolean>;
     onChangeTopNavEnable: (v: boolean) => void;
+    tabNavEnable: ComputedRef<boolean>;
+    onChangeTabNavEnable: (v: boolean) => void;
     headFixed: Ref<boolean>;
     onChangeHeadFixed: (v: boolean) => void;
     disabledHeadFixed: Ref<boolean>;
@@ -94,7 +102,14 @@ export default defineComponent({
                 disabledHeadFixed.value = false;
             }
 
-        }       
+        }   
+        
+        
+        // 启用TabNav
+        const tabNavEnable = computed<boolean>(()=> store.state.global.tabNavEnable);
+        const onChangeTabNavEnable = (v: boolean): void => {
+            store.commit('global/setTabNavEnable', v);
+        }  
 
 
         return {
@@ -103,6 +118,8 @@ export default defineComponent({
             show,
             topNavEnable,
             onChangeTopNavEnable,
+            tabNavEnable,
+            onChangeTabNavEnable,
             headFixed,
             onChangeHeadFixed,
             disabledHeadFixed
