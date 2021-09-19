@@ -37,7 +37,7 @@
     </div>
 </template>
 <script lang="ts">
-import { defineComponent, computed, ComputedRef, watch, ref, Ref } from "vue";
+import { defineComponent, computed, ComputedRef, watch, ref, Ref, nextTick } from "vue";
 import { useStore } from 'vuex';
 import { useRoute } from 'vue-router';
 import { StateType as GlobalStateType } from '@/store/global';
@@ -126,7 +126,9 @@ export default defineComponent({
         if (routeParentPaths.value.length && !collapsed.value) {
           leftOpenKeys.value = ArrayMergeUnique<string>(leftOpenKeys.value, routeParentPaths.value);
         } else {
-          leftOpenKeys.value =[];
+          nextTick(()=> {
+            leftOpenKeys.value =[];
+          })
         }
       })
 
