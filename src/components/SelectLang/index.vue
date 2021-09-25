@@ -1,7 +1,7 @@
 <template>
     <a-dropdown>
         <span class="dropDown">
-            <GlobalOutlined  />
+            <icon-svg type="language-outline" ></icon-svg>
         </span>
         <template #overlay>
             <a-menu class="menu" @click="changeLang" :selectedKeys="[locale]">
@@ -17,9 +17,9 @@
 </template>
 <script lang="ts">
 import { defineComponent, WritableComputedRef } from "vue";
-import { GlobalOutlined } from '@ant-design/icons-vue';
 import { setI18nLanguage } from "@/config/i18n";
 import { useI18n } from "vue-i18n";
+import IconSvg from "@/components/IconSvg";
 interface SelectLangSetupData {
     locales: string[];
     languageLabels: {[key: string]: string};
@@ -31,7 +31,7 @@ interface SelectLangSetupData {
 export default defineComponent({
     name: 'SelectLang',
     components: {
-        GlobalOutlined
+        IconSvg
     },
     setup(): SelectLangSetupData {
 
