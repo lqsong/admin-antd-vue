@@ -77,10 +77,10 @@
 
 
 
-            <FooterToolbar class="text-align-right">
+            <form-footer-toolbar>
                 <a-button type="primary" @click="handleSubmit" :loading="submitLoading">提交</a-button>
                 <a-button @click="resetFields" style="margin-left: 10px;">重置</a-button>  
-            </FooterToolbar>
+            </form-footer-toolbar>
 
 
         </a-form>
@@ -96,8 +96,8 @@ const useForm = Form.useForm;
 
 import { FormDataType } from "./data.d";
 import { StateType as FormStateType } from "./store";
-import FooterToolbar from '@/layouts/IndexLayout/components/FooterToolbar.vue';
 import TableForm from './components/TableForm/index.vue';
+import FormFooterToolbar from "@/components/FormFooterToolbar/index.vue";
 
 interface FormComplexPageSetupData {
     resetFields: (newValues?: Props) => void;
@@ -111,7 +111,7 @@ export default defineComponent({
     name: 'FormComplexPage',
     components: {
         TableForm,
-        FooterToolbar
+        FormFooterToolbar
     },
     setup(): FormComplexPageSetupData {
 
