@@ -45,8 +45,8 @@ import { useRoute } from 'vue-router';
 import { StateType as GlobalStateType } from '@/store/global';
 import { StateType as UserStateType } from "@/store/user";
 import { 
-  vueRoutes, RoutesDataItem, getRouteItem, getSelectLeftMenuPath, 
-  formatRoutePathTheParents, getRouteBelongTopMenu, getBreadcrumbRoutes, 
+  PathJsonRoutesDataItem, vueRoutes, jsonPathVueRoutes, RoutesDataItem, getJsonRouteItem, getSelectLeftMenuPath, 
+  getRouteBelongTopMenu, getBreadcrumbRoutes, 
   BreadcrumbType, getPermissionMenuData
 } from '@/utils/routes';
 import { mergeUnique as ArrayMergeUnique } from '@/utils/array';
@@ -90,19 +90,19 @@ export default defineComponent({
       const route = useRoute();
 
       // 所有菜单路由
-      const menuData: RoutesDataItem[] = vueRoutes(IndexLayoutRoutes);      
+      const menuData: RoutesDataItem[] = vueRoutes(IndexLayoutRoutes);   
+      
+      // 框架所有的路由转成json并统一添加了parentPath
+      const jsonPathRoutes: PathJsonRoutesDataItem = jsonPathVueRoutes(menuData);
 
       // 当前路由 item
-      const routeItem = computed<RoutesDataItem>(()=> getRouteItem(route.path, menuData));
+      const routeItem = computed<RoutesDataItem>(()=> getJsonRouteItem(route.path, jsonPathRoutes));
 
       // 有权限的菜单
       const permissionMenuData = computed<RoutesDataItem[]>(()=> getPermissionMenuData(store.state.user.currentUser.roles, menuData));
 
       // 当前路由的顶部菜单path
       const belongTopMenu = computed<string>(()=>getRouteBelongTopMenu(routeItem.value))
-
-      // 当前路由的父路由path[]
-      const routeParentPaths = computed<string[]>(()=>formatRoutePathTheParents(routeItem.value.path));
 
       // 收缩左侧
       const collapsed = computed<boolean>(()=> store.state.global.collapsed);
@@ -127,10 +127,11 @@ export default defineComponent({
       });
 
       // 左侧展开菜单keys
-      const leftOpenKeys = ref<string[]>(routeParentPaths.value);
-      watch([routeParentPaths,collapsed],()=>{
-        if (routeParentPaths.value.length && !collapsed.value) {
-          leftOpenKeys.value = ArrayMergeUnique<string>(leftOpenKeys.value, routeParentPaths.value);
+      const leftOpenKeys = ref<string[]>(routeItem.value.parentPath || []);
+      watch([routeItem,collapsed],()=>{
+        const parentPath = routeItem.value.parentPath || [];
+        if (parentPath.length && !collapsed.value) {
+          leftOpenKeys.value = ArrayMergeUnique<string>(leftOpenKeys.value, parentPath);
         } else {
           nextTick(()=> {
             leftOpenKeys.value =[];
@@ -138,13 +139,14 @@ export default defineComponent({
         }
       })
 
+
       // 左侧菜单展开收起
       const onOpenChange = (key: any) => {
         leftOpenKeys.value = key;
       }
 
       // 面包屑导航
-      const breadCrumbs = computed<BreadcrumbType[]>(() => getBreadcrumbRoutes(routeItem.value,routeParentPaths.value, menuData));
+      const breadCrumbs = computed<BreadcrumbType[]>(() => getBreadcrumbRoutes(route.path, jsonPathRoutes));
 
       // 设置title
       useTitle(routeItem);

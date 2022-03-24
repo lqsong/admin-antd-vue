@@ -35,7 +35,7 @@
 <script lang="ts">
 import { defineComponent, PropType, toRefs, computed, ComputedRef, Ref } from 'vue';
 import { useI18n } from "vue-i18n";
-import { RoutesDataItem, setRoutePathForParent, getRouteBelongTopMenu, hasChildRoute } from '@/utils/routes';
+import { RoutesDataItem, getRouteBelongTopMenu, hasChildRoute } from '@/utils/routes';
 import ALink from '@/components/ALink/index.vue';
 import Icon from "./Icon.vue";
 interface SiderMenuItemSetupData {
