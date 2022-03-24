@@ -168,28 +168,5 @@ export default defineComponent({
 })
 </script>
 <style lang="less">
-@import '../../assets/css/variables.less';
-#indexlayout {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-}
-#indexlayout-right {
-  position: relative;
-  flex: 1;
-  overflow: auto;
-  background-color: @mainBgColor;
-  &.fiexd-header {
-    display: flex;
-    flex-direction: column;
-    .indexlayout-right-main {
-      flex: 1;
-      overflow: auto;
-    }
-  }
-}
-.indexlayout-main-conent {
-  margin: 24px;
-  position: relative;
-}
+@import './css/index.less';
 </style>
