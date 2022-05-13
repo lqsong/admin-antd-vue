@@ -41,7 +41,7 @@ export default defineComponent({
   height: 100vh;
   min-height: 500px;
   overflow: auto;
-  background-image: url('../../assets/images/bg-smooth.jpg');
+  background-image: url('../../assets/images/bg.svg');
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -51,7 +51,7 @@ export default defineComponent({
     position: absolute;
     top: 20px;
     right: 50px;
-    color: #ffffff;
+    color: #000000;
     font-size: 16px;
   }
 }

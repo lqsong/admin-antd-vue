@@ -1,5 +1,5 @@
 <template>
-    <div class="indexlayout-main-conent">
+    <div class="layout-main-conent">
       <a-card :bordered="false">
         <a-form :wrapper-col="{xs: { span: 24 },sm: { span: 12 }, md: { span: 10 },}" :label-col="{ xs: { span: 24 }, sm: { span: 7 } }" >
             <a-form-item label="标题：" v-bind="validateInfos.title">

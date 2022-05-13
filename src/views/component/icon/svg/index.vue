@@ -1,5 +1,5 @@
 <template>
-    <div className="indexlayout-main-conent">
+    <div className="layout-main-conent">
         <a-card :bordered="false">
 
              <div v-for="(item, index) in svgIcons" class="list" :key="index" >

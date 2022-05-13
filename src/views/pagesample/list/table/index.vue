@@ -1,5 +1,5 @@
 <template>
-    <div class="indexlayout-main-conent">
+    <div class="layout-main-conent">
         <a-card :bordered="false">
             <template #title>
                 <a-button type="primary" @click="() => setCreateFormVisible(true)">新增</a-button>

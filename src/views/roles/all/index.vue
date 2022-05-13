@@ -1,5 +1,5 @@
 <template>
-    <div className="indexlayout-main-conent">
+    <div className="layout-main-conent">
         <a-card :bordered="false">
 
                 <a-alert message="此栏目为权限功能做演示！" type="warning" />

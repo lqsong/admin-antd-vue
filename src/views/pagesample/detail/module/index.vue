@@ -1,5 +1,5 @@
 <template>
-    <div class="indexlayout-main-conent">
+    <div class="layout-main-conent">
         <a-spin :spinning="loading" size="large">
             <a-card :bordered="false" title="退款申请" style="margin-bottom: 20px">
 
