@@ -1,5 +1,5 @@
 <template>
-    <div class="indexlayout-main-conent">
+    <div class="layout-main-conent">
         <a-form  :wrapper-col="{span:24}">
             <a-card :bordered="false"  title="基础信息" style="margin-bottom: 20px">
                 <a-row :gutter="16">

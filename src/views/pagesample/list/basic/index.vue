@@ -1,5 +1,5 @@
 <template>
-    <div class="indexlayout-main-conent">
+    <div class="layout-main-conent">
         <a-card :bordered="false" title="友情链接">
             <template #extra>
                     <a-radio-group defaultValue="all">

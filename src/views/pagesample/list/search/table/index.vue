@@ -1,5 +1,5 @@
 <template>
-    <div class="indexlayout-main-conent">
+    <div class="layout-main-conent">
         <a-card
             :bordered="false"
             style="margin-bottom: 15px"
@@ -313,7 +313,7 @@ export default defineComponent({
                 const fieldsValue = await validate<Omit<TableListItem, 'id'>>();
                 console.log('search', fieldsValue);
                 message.warning('进行了搜索!');
-            } catch (error) {
+            } catch (error:any) {
                 message.warning(error);
             }
         }

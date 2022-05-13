@@ -1,6 +1,6 @@
 <template>
             <screen-table
-                class="indexlayout-main-conent"
+                class="layout-main-conent"
                 row-key="id"
                 :columns="columns"
                 :data-source="list"

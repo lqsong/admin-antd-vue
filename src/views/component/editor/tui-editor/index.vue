@@ -1,5 +1,5 @@
 <template>
-    <div className="indexlayout-main-conent">
+    <div className="layout-main-conent">
         <a-card :bordered="false" title="Editor:">
            <TuiEditor v-model="val" />
         </a-card>
